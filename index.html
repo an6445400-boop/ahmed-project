@@ -2,457 +2,1192 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>إلى عائشة ❤️</title>
+<title>Saeed | From The Heart ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:#08050a;
-  color:white;
-  overflow-x:hidden;
+    font-family:"Cairo",sans-serif;
+    color:#fff;
+    background:#05020d;
+    overflow-x:hidden;
 }
 
-/* الخلفية */
+/* ===== خلفية جديدة ===== */
 
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 20%,#70183f,transparent 28%),
-    radial-gradient(circle at 80% 80%,#35106b,transparent 30%),
-    #08050a;
-  z-index:-3;
+    content:"";
+    position:fixed;
+    inset:-50%;
+    z-index:-5;
+
+    background:
+        radial-gradient(circle at 20% 20%, #7c3aed55 0, transparent 28%),
+        radial-gradient(circle at 80% 30%, #ec489955 0, transparent 28%),
+        radial-gradient(circle at 50% 85%, #06b6d455 0, transparent 25%),
+        linear-gradient(135deg,#05020d,#10051c,#030817,#0b0314);
+
+    background-size:150% 150%;
+    animation:bgMove 15s ease-in-out infinite alternate;
 }
 
-.stars{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
+@keyframes bgMove{
+    0%{
+        transform:translate(0,0) rotate(0deg);
+    }
+    50%{
+        transform:translate(4%,2%) rotate(2deg);
+    }
+    100%{
+        transform:translate(-3%,4%) rotate(-2deg);
+    }
 }
 
-.star{
-  position:absolute;
-  width:2px;
-  height:2px;
-  background:white;
-  border-radius:50%;
-  animation:twinkle 3s infinite alternate;
+/* خطوط ضوئية */
+
+.light{
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.18;
+    pointer-events:none;
+    z-index:-2;
 }
 
-@keyframes twinkle{
-  from{opacity:.15;transform:scale(.5)}
-  to{opacity:1;transform:scale(1.5)}
+.light.one{
+    background:#9b5cff;
+    top:-150px;
+    right:-120px;
+    animation:floatLight 8s infinite alternate;
 }
 
-/* الناف بار */
-
-nav{
-  position:fixed;
-  top:15px;
-  left:50%;
-  transform:translateX(-50%);
-  width:92%;
-  max-width:700px;
-  padding:13px 18px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:50px;
-  backdrop-filter:blur(18px);
-
-  z-index:100;
+.light.two{
+    background:#ff3d91;
+    bottom:-160px;
+    left:-120px;
+    animation:floatLight 10s infinite alternate-reverse;
 }
 
-.logo{
-  font-weight:bold;
-  color:#ff6c9a;
-  font-size:20px;
+@keyframes floatLight{
+    to{
+        transform:translate(100px,80px) scale(1.2);
+    }
 }
 
-nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-size:13px;
+/* ===== النجوم ===== */
+
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
 }
 
-/* الصفحة الرئيسية */
+/* ===== الأقسام ===== */
+
+section{
+    min-height:100vh;
+    padding:40px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+}
+
+/* ===== HERO ===== */
 
 .hero{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:100px 20px 50px;
+    flex-direction:column;
+    text-align:center;
 }
 
-.content{
-  width:100%;
-  max-width:850px;
+.small-title{
+    color:#c7bddc;
+    font-size:12px;
+    letter-spacing:6px;
+    margin-bottom:25px;
+    animation:fadeDown 1s ease;
 }
 
-.small{
-  display:inline-block;
-  padding:8px 18px;
-  border-radius:30px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.1);
-  color:#ffabc3;
-  margin-bottom:22px;
+/* منطقة الاسم */
+
+.name-box{
+    position:relative;
+    min-height:190px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-h1{
-  font-size:clamp(45px,11vw,90px);
-  margin-bottom:15px;
+/* الاسم */
+
+#name{
+    direction:ltr;
+    font-size:clamp(65px,19vw,155px);
+    line-height:1;
+    font-weight:900;
+    letter-spacing:3px;
+    position:relative;
+    z-index:5;
 }
 
-h1 span{
-  color:#ff4e83;
-  text-shadow:0 0 30px #ff174f;
+/* الحروف */
+
+.letter{
+    display:inline-block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #d8b4fe,
+            #ff75ae,
+            #67e8f9,
+            #fff
+        );
+
+    background-size:400%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    opacity:0;
+
+    transform:
+        translateY(80px)
+        scale(.2)
+        rotate(15deg);
+
+    filter:blur(15px);
+
+    animation:
+        showLetter .8s cubic-bezier(.2,.8,.2,1) forwards,
+        colorMove 4s linear infinite;
 }
 
-.intro{
-  color:#c8bec4;
-  font-size:18px;
-  line-height:1.8;
+@keyframes showLetter{
+    0%{
+        opacity:0;
+        transform:
+            translateY(80px)
+            scale(.2)
+            rotate(15deg);
+        filter:blur(15px);
+    }
+
+    65%{
+        opacity:1;
+        transform:
+            translateY(-12px)
+            scale(1.12)
+            rotate(-3deg);
+        filter:
+            blur(0)
+            drop-shadow(0 0 30px #ff5b9d);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+        filter:
+            blur(0)
+            drop-shadow(0 0 15px #ff5b9d);
+    }
+}
+
+@keyframes colorMove{
+    to{
+        background-position:400%;
+    }
+}
+
+/* حلقة حول الاسم */
+
+.name-ring{
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    border:1px solid #ffffff18;
+
+    box-shadow:
+        0 0 50px #ff4f9a22,
+        inset 0 0 50px #8b5cf622;
+
+    animation:spin 8s linear infinite;
+}
+
+.name-ring::before,
+.name-ring::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    border:1px dashed #ffffff18;
+}
+
+.name-ring::before{
+    inset:20px;
+}
+
+.name-ring::after{
+    inset:42px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* نجوم حول الاسم */
+
+.spark{
+    position:absolute;
+    color:#fff;
+    font-size:18px;
+    animation:spark 2s infinite ease-in-out;
+}
+
+.spark:nth-child(1){
+    top:8%;
+    left:18%;
+}
+
+.spark:nth-child(2){
+    top:20%;
+    right:15%;
+    animation-delay:.5s;
+}
+
+.spark:nth-child(3){
+    bottom:15%;
+    left:12%;
+    animation-delay:1s;
+}
+
+.spark:nth-child(4){
+    bottom:10%;
+    right:18%;
+    animation-delay:1.5s;
+}
+
+@keyframes spark{
+    0%,100%{
+        opacity:.15;
+        transform:scale(.5) rotate(0);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5) rotate(180deg);
+        text-shadow:0 0 20px #ff72ad;
+    }
+}
+
+/* نص */
+
+.hero h2{
+    font-size:clamp(18px,4vw,28px);
+    font-weight:400;
+    color:#e5dff1;
+    margin-top:15px;
+    opacity:0;
+    animation:fadeUp 1s 2.2s forwards;
+}
+
+.hero-line{
+    width:110px;
+    height:2px;
+    margin:28px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff5c9d,
+            #8b5cf6,
+            transparent
+        );
+
+    box-shadow:0 0 25px #ff4c9822;
+
+    opacity:0;
+    animation:fadeUp 1s 2.4s forwards;
+}
+
+.hero p{
+    max-width:620px;
+    color:#aaa2ba;
+    line-height:2;
+    opacity:0;
+    animation:fadeUp 1s 2.6s forwards;
+}
+
+/* زر */
+
+.start-btn{
+    margin-top:35px;
+    padding:16px 30px;
+
+    color:#fff;
+    text-decoration:none;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff12,
+            #ff4d9d18
+        );
+
+    border:1px solid #ffffff22;
+
+    box-shadow:
+        0 10px 40px #0008,
+        0 0 30px #ff4d9d18;
+
+    backdrop-filter:blur(15px);
+
+    opacity:0;
+    animation:fadeUp 1s 2.8s forwards;
+
+    transition:.3s;
+}
+
+.start-btn:hover{
+    transform:translateY(-5px) scale(1.04);
+    box-shadow:
+        0 15px 50px #0009,
+        0 0 40px #ff4d9d44;
+}
+
+/* ===== الصورة ===== */
+
+.photo-section{
+    flex-direction:column;
+    text-align:center;
+}
+
+.photo-title{
+    margin-bottom:30px;
+}
+
+.photo-title span{
+    color:#ff79aa;
+    letter-spacing:4px;
+    font-size:12px;
+}
+
+.photo-title h2{
+    font-size:clamp(32px,8vw,55px);
+    margin-top:8px;
+}
+
+.photo-frame{
+    width:min(430px,92vw);
+    padding:8px;
+    border-radius:32px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f9a,
+            #8b5cf6,
+            #22d3ee,
+            #ff4f9a
+        );
+
+    background-size:300%;
+
+    animation:
+        borderFlow 5s linear infinite,
+        photoIn 1s ease;
+
+    box-shadow:
+        0 30px 100px #000b,
+        0 0 60px #ff4f9a22;
+}
+
+@keyframes borderFlow{
+    to{
+        background-position:300%;
+    }
+}
+
+.photo-frame img{
+    display:block;
+    width:100%;
+    border-radius:25px;
+    border:1px solid #ffffff22;
+}
+
+.photo-caption{
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:18px;
+
+    padding:14px;
+
+    border-radius:20px;
+
+    background:#0009;
+    backdrop-filter:blur(15px);
+
+    border:1px solid #ffffff20;
+}
+
+.photo-caption h3{
+    font-size:19px;
+}
+
+.photo-caption p{
+    color:#bbb;
+    font-size:11px;
+}
+
+/* ===== STORY ===== */
+
+.story{
+    flex-direction:column;
+    text-align:center;
+}
+
+.section-label{
+    color:#ff72a7;
+    letter-spacing:3px;
+    font-size:13px;
+}
+
+.story h2{
+    font-size:clamp(32px,8vw,60px);
+    margin:12px 0 25px;
 }
 
 /* القلب */
 
 .heart-area{
-  position:relative;
-  width:360px;
-  height:340px;
-  margin:35px auto;
+    width:300px;
+    height:250px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.word{
-  position:absolute;
-  font-size:11px;
-  font-weight:bold;
-  color:#ff5d91;
-  white-space:nowrap;
+.heart{
+    width:120px;
+    height:120px;
+    position:relative;
+    transform:rotate(-45deg);
 
-  opacity:0;
-  transform:scale(0) rotate(-90deg);
+    background:
+        linear-gradient(
+            135deg,
+            #ff2468,
+            #ff83b2
+        );
 
-  text-shadow:
-    0 0 6px #ff2868,
-    0 0 15px #ff2868;
+    filter:
+        drop-shadow(0 0 20px #ff2468)
+        drop-shadow(0 0 60px #ff246866);
 
-  transition:
-    opacity .7s ease,
-    transform .7s cubic-bezier(.17,.67,.35,1.5);
+    animation:heartBeat 1.5s infinite;
 }
 
-.word.show{
-  opacity:1;
-  transform:scale(1) rotate(0deg);
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:inherit;
+    border-radius:50%;
 }
 
-/* زر */
-
-.btn{
-  border:none;
-  border-radius:50px;
-  padding:14px 27px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.3s;
+.heart::before{
+    top:-60px;
 }
 
-.main-btn{
-  background:linear-gradient(135deg,#ff3f78,#b72b73);
-  color:white;
-  box-shadow:0 10px 35px rgba(255,45,105,.3);
+.heart::after{
+    left:60px;
 }
 
-.btn:hover{
-  transform:translateY(-4px) scale(1.04);
+@keyframes heartBeat{
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    15%{
+        transform:rotate(-45deg) scale(1.12);
+    }
+
+    30%{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    45%{
+        transform:rotate(-45deg) scale(1.07);
+    }
 }
 
-/* الأقسام */
+/* الكلام */
 
-section{
-  padding:100px 20px;
+.message{
+    max-width:700px;
+    color:#c9c4d5;
+    line-height:2.2;
+    font-size:17px;
 }
 
-.title{
-  text-align:center;
-  margin-bottom:45px;
+.highlight{
+    color:#ff78aa;
+    font-weight:700;
 }
 
-.title h2{
-  font-size:34px;
-  margin-bottom:10px;
-}
+/* ===== الأيقونات الجديدة ===== */
 
-.title p{
-  color:#aaa;
-}
-
-.cards{
-  width:100%;
-  max-width:1000px;
-  margin:auto;
-
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.card{
-  padding:30px;
-  min-height:200px;
-
-  background:rgba(255,255,255,.055);
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:25px;
-
-  backdrop-filter:blur(12px);
-
-  transition:.4s;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-  border-color:#ff4f86;
-  box-shadow:0 15px 40px rgba(255,40,100,.12);
+.icon-cloud{
+    width:min(950px,100%);
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:18px;
+    margin-top:50px;
 }
 
 .icon{
-  font-size:38px;
-  margin-bottom:18px;
+    position:relative;
+    height:115px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff12,
+            #ffffff03
+        );
+
+    border:1px solid #ffffff18;
+
+    box-shadow:
+        inset 0 1px 0 #ffffff18,
+        0 15px 35px #0008;
+
+    backdrop-filter:blur(18px);
+
+    overflow:hidden;
+
+    transition:
+        transform .35s,
+        box-shadow .35s,
+        border-color .35s;
 }
 
-.card h3{
-  margin-bottom:12px;
+.icon::before{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ff4f9a44,
+            transparent 70%
+        );
+
+    top:-35px;
+    right:-25px;
 }
 
-.card p{
-  color:#aaa;
-  line-height:1.9;
+.icon::after{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffffff88,
+            transparent
+        );
+
+    top:0;
+    left:-100px;
+
+    transform:rotate(-25deg);
+
+    transition:1s;
 }
 
-/* الرسالة */
-
-.message-box{
-  max-width:750px;
-  margin:auto;
-
-  padding:40px 25px;
-
-  text-align:center;
-
-  border-radius:30px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,65,120,.12),
-      rgba(116,54,180,.1)
-    );
-
-  border:1px solid rgba(255,255,255,.1);
-
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
+.icon:hover::after{
+    left:130%;
 }
 
-#message{
-  font-size:21px;
-  line-height:2;
-  color:#ffe9f0;
-  min-height:130px;
-  transition:.5s;
+/* دائرة الأيقونة */
+
+.icon i{
+    width:58px;
+    height:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    font-size:25px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff4f9a,
+            #8b5cf6
+        );
+
+    box-shadow:
+        inset 0 2px 3px #ffffff55,
+        inset 0 -5px 10px #0005,
+        0 8px 22px #ff4f9a44;
+
+    text-shadow:
+        0 2px 5px #0008;
+
+    margin-bottom:10px;
+
+    transition:.35s;
 }
 
-.message-box button{
-  margin-top:20px;
+.icon span{
+    font-size:11px;
+    color:#c9c4d5;
+    position:relative;
+    z-index:2;
 }
 
-/* المفاجأة */
+.icon:hover{
+    transform:
+        translateY(-10px)
+        rotateX(6deg)
+        rotateY(-6deg)
+        scale(1.04);
 
-.surprise{
-  text-align:center;
+    border-color:#ff6fa955;
+
+    box-shadow:
+        inset 0 1px 0 #ffffff25,
+        0 20px 45px #0009,
+        0 0 30px #ff4f9a22;
 }
+
+.icon:hover i{
+    transform:
+        translateY(-4px)
+        rotate(-6deg)
+        scale(1.12);
+
+    box-shadow:
+        inset 0 2px 3px #ffffff66,
+        0 0 30px #ff4f9a66;
+}
+
+/* ===== الهدايا ===== */
+
+.gifts{
+    width:min(850px,100%);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:35px;
+}
+
+.gift{
+    padding:30px 20px;
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff12,
+            #ffffff03
+        );
+
+    border:1px solid #ffffff18;
+
+    box-shadow:0 15px 40px #0007;
+
+    cursor:pointer;
+    transition:.35s;
+}
+
+.gift:hover{
+    transform:translateY(-8px) scale(1.02);
+}
+
+.gift i{
+    font-size:35px;
+    color:#ffd166;
+    margin-bottom:15px;
+    filter:drop-shadow(0 0 12px #ffd16666);
+}
+
+.gift h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.gift p{
+    color:#898397;
+    font-size:12px;
+}
+
+/* ===== النافذة ===== */
 
 .secret{
-  margin-top:25px;
-  font-size:24px;
-  color:#ff6694;
-  min-height:40px;
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:50;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:#000b;
+    backdrop-filter:blur(18px);
 }
 
-footer{
-  text-align:center;
-  padding:45px 20px;
-  color:#777;
-  border-top:1px solid rgba(255,255,255,.07);
+.secret.active{
+    display:flex;
 }
 
-footer span{
-  color:#ff5688;
+.secret-box{
+    width:min(500px,100%);
+    padding:40px 25px;
+    text-align:center;
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1029,
+            #08050f
+        );
+
+    border:1px solid #ffffff20;
+
+    box-shadow:
+        0 30px 100px #000;
+    
+    animation:pop .45s ease;
 }
 
-/* موبايل */
-
-@media(max-width:600px){
-
-  nav{
-    width:94%;
-  }
-
-  nav a{
-    font-size:11px;
-  }
-
-  .heart-area{
-    transform:scale(.83);
-    margin-top:15px;
-    margin-bottom:-10px;
-  }
-
-  .intro{
-    font-size:16px;
-  }
-
-  section{
-    padding:75px 15px;
-  }
-
+.secret-box i{
+    font-size:50px;
+    color:#ff6fa5;
+    margin-bottom:20px;
+    filter:drop-shadow(0 0 20px #ff4f9a88);
 }
+
+.secret-box h2{
+    margin-bottom:15px;
+}
+
+.secret-box p{
+    color:#c0baca;
+    line-height:2;
+}
+
+.close{
+    display:inline-block;
+    margin-top:25px;
+    padding:10px 25px;
+    border-radius:30px;
+    background:#ff477d;
+    cursor:pointer;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes photoIn{
+    from{
+        opacity:0;
+        transform:scale(.85);
+        filter:blur(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+}
+
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(.75);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+
+    .icon-cloud{
+        grid-template-columns:repeat(3,1fr);
+        gap:12px;
+    }
+
+    .icon{
+        height:105px;
+        border-radius:23px;
+    }
+
+    .icon i{
+        width:52px;
+        height:52px;
+        font-size:22px;
+    }
+
+    .gifts{
+        grid-template-columns:1fr;
+    }
+
+    .name-ring{
+        width:215px;
+        height:215px;
+    }
+}
+
+@media(max-width:420px){
+
+    .icon-cloud{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    #name{
+        font-size:65px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="stars" id="stars"></div>
+<div class="light one"></div>
+<div class="light two"></div>
 
-<!-- القائمة -->
-
-<nav>
-
-  <div class="logo">A ❤️</div>
-
-  <div>
-    <a href="#home">الرئيسية</a>
-    &nbsp;&nbsp;
-    <a href="#story">الحكاية</a>
-    &nbsp;&nbsp;
-    <a href="#message">الرسالة</a>
-  </div>
-
-</nav>
+<canvas id="stars"></canvas>
 
 
-<!-- الرئيسية -->
+<!-- HERO -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-<div class="content">
-
-<div class="small">
-  ✨ صفحة صنعت لشخص واحد فقط
+<div class="small-title">
+A SPECIAL PAGE
 </div>
 
-<h1>
-  إلى <span>عائشة</span>
-</h1>
 
-<p class="intro">
-  في حاجات جميلة صعب تتقال بالكلام...
-  فخلّي الكود يقولها بدلّي ❤️
-</p>
+<div class="name-box">
 
+<div class="name-ring"></div>
 
-<!-- القلب -->
+<span class="spark">✦</span>
+<span class="spark">✧</span>
+<span class="spark">✦</span>
+<span class="spark">✧</span>
 
-<div class="heart-area" id="heart"></div>
-
-
-<button class="btn main-btn"
-onclick="scrollToMessage()">
-
-  💌 عندي رسالة ليكي
-
-</button>
-
-</div>
-
-</section>
-
-
-<!-- الحكاية -->
-
-<section id="story">
-
-<div class="title">
-
-<h2>ليه عائشة؟</h2>
-
-<p>ثلاث حاجات بسيطة...</p>
+<h1 id="name"></h1>
 
 </div>
 
 
-<div class="cards">
+<h2>
+حاجة صغيرة معمولة لشخص غالي ❤️
+</h2>
 
-<div class="card">
 
-<div class="icon">🌹</div>
+<div class="hero-line"></div>
 
-<h3>وجودك</h3>
 
 <p>
-في أشخاص وجودهم بيضيف حاجة جميلة
-لليوم من غير ما يعملوا أي حاجة.
+مش لازم الكلام يكون كتير علشان يوصل معناه...
+أحيانًا صفحة صغيرة تكفي تقول لشخص
+إنه غالي ومكانته كبيرة.
 </p>
+
+
+<a href="#photo" class="start-btn">
+اكتشف الصفحة
+<i class="fa-solid fa-arrow-down"></i>
+</a>
+
+</section>
+
+
+<!-- PHOTO -->
+
+<section class="photo-section" id="photo">
+
+<div class="photo-title">
+
+<span>
+A SPECIAL MEMORY
+</span>
+
+<h2>
+Saeed ❤️
+</h2>
 
 </div>
 
 
-<div class="card">
+<div class="photo-frame">
 
-<div class="icon">✨</div>
+<img src="7718.jpg" alt="Saeed">
 
-<h3>ابتسامتك</h3>
+<div class="photo-caption">
+
+<h3>
+شخص غالي 🤍
+</h3>
 
 <p>
-ابتسامة واحدة ممكن تغيّر شكل يوم كامل
-وتخلّي اللحظة أحلى.
+صورة تحفظ ذكرى جميلة
 </p>
 
 </div>
 
+</div>
 
-<div class="card">
+</section>
 
-<div class="icon">❤️</div>
 
-<h3>مكانتك</h3>
+<!-- STORY -->
+
+<section class="story">
+
+<div class="section-label">
+FROM THE HEART
+</div>
+
+<h2>
+إلى Saeed...
+</h2>
+
+
+<div class="heart-area">
+<div class="heart"></div>
+</div>
+
+
+<p class="message">
+
+يا <span class="highlight">Saeed</span>،
+أنت مش مجرد ابن عمتي،
+أنت حد غالي وأخو وصاحب،
+ووجودك في العيلة له طعم مختلف.
+
+<br><br>
+
+ربنا يديم بينا المحبة،
+والضحكة،
+والذكريات الحلوة،
+وتفضل دايمًا من الناس اللي
+<span class="highlight">
+لهم مكان خاص في القلب.
+</span>
+
+</p>
+
+
+<!-- ICONS -->
+
+<div class="icon-cloud">
+
+<div class="icon">
+<i class="fa-solid fa-heart"></i>
+<span>محبة</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-users"></i>
+<span>عيلة</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-handshake"></i>
+<span>جدعنة</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-face-laugh-beam"></i>
+<span>ضحكة</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-star"></i>
+<span>غالي</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-shield-heart"></i>
+<span>سند</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-camera"></i>
+<span>ذكريات</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-gift"></i>
+<span>هدية</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-crown"></i>
+<span>مميز</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-fire"></i>
+<span>طاقة</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-infinity"></i>
+<span>دايمًا</span>
+</div>
+
+<div class="icon">
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+<span>مميز جدًا</span>
+</div>
+
+</div>
+
+
+<!-- GIFTS -->
+
+<div class="gifts">
+
+<div class="gift" onclick="openSecret(1)">
+
+<i class="fa-solid fa-gift"></i>
+
+<h3>
+هدية صغيرة
+</h3>
 
 <p>
-مش كل شخص بياخد مكان خاص في القلب،
-بس في أشخاص بيكون لهم مكان مختلف.
+اضغط وشوف المفاجأة
+</p>
+
+</div>
+
+
+<div class="gift" onclick="openSecret(2)">
+
+<i class="fa-solid fa-envelope"></i>
+
+<h3>
+رسالة خاصة
+</h3>
+
+<p>
+في كلام مخصوص ليك
+</p>
+
+</div>
+
+
+<div class="gift" onclick="openSecret(3)">
+
+<i class="fa-solid fa-star"></i>
+
+<h3>
+آخر مفاجأة
+</h3>
+
+<p>
+دي متفتحهاش إلا للآخر
 </p>
 
 </div>
@@ -462,205 +1197,248 @@ onclick="scrollToMessage()">
 </section>
 
 
-<!-- الرسالة -->
+<!-- SECRET -->
 
-<section id="message">
+<div class="secret" id="secret">
 
-<div class="title">
+<div class="secret-box">
 
-<h2>رسالة من القلب</h2>
+<i id="secretIcon" class="fa-solid fa-heart"></i>
 
-<p>اقرئيها براحتك ❤️</p>
+<h2 id="secretTitle">
+رسالة لـ Saeed
+</h2>
+
+<p id="secretText">
+Saeed، ربنا يخليك دايمًا بخير،
+ويديم بينا المحبة والضحكة والذكريات الجميلة ❤️
+</p>
+
+<div class="close" onclick="closeSecret()">
+إغلاق
+</div>
 
 </div>
 
-
-<div class="message-box">
-
-<div id="messageText">
-عائشة... ❤️
-<br>
-يمكن الكلام ده بسيط،
-لكن كل كلمة فيه معمولة مخصوص عشانك.
 </div>
-
-<button
-class="btn main-btn"
-onclick="changeMessage()">
-
-  ✨ رسالة أخرى
-
-</button>
-
-</div>
-
-</section>
-
-
-<!-- المفاجأة -->
-
-<section class="surprise">
-
-<div class="title">
-
-<h2>وفي الآخر...</h2>
-
-<p>في حاجة صغيرة مستنياكي</p>
-
-</div>
-
-<button
-class="btn main-btn"
-onclick="surprise()">
-
-  🎁 اضغطي هنا
-
-</button>
-
-<div class="secret" id="secret"></div>
-
-</section>
-
-
-<footer>
-
-صنع بحب لـ <span>عائشة ❤️</span>
-
-</footer>
 
 
 <script>
 
-/* النجوم */
+/* =========================
+   كتابة الاسم حرف حرف
+========================= */
 
-const stars =
+const text = "Saeed";
+const nameBox = document.getElementById("name");
+
+let i = 0;
+
+function writeName(){
+
+    if(i < text.length){
+
+        const span = document.createElement("span");
+
+        span.className = "letter";
+
+        span.textContent = text.charAt(i);
+
+        /*
+        كل حرف له تأخير مختلف
+        */
+
+        span.style.animationDelay =
+            (i * 0.35) + "s," +
+            (i * 0.35) + "s";
+
+        nameBox.appendChild(span);
+
+        i++;
+
+        setTimeout(writeName,350);
+
+    }
+
+}
+
+setTimeout(writeName,500);
+
+
+/* =========================
+   النجوم المتحركة
+========================= */
+
+const canvas =
 document.getElementById("stars");
 
-for(let i=0;i<90;i++){
+const ctx =
+canvas.getContext("2d");
 
-  const s =
-  document.createElement("div");
+let stars=[];
 
-  s.className="star";
+function resize(){
 
-  s.style.left =
-  Math.random()*100+"%";
+    canvas.width =
+        window.innerWidth;
 
-  s.style.top =
-  Math.random()*100+"%";
+    canvas.height =
+        window.innerHeight;
 
-  s.style.animationDelay =
-  Math.random()*3+"s";
-
-  stars.appendChild(s);
 }
 
+resize();
 
-/* تكوين القلب */
-
-const heart =
-document.getElementById("heart");
-
-const total=170;
-
-for(let i=0;i<total;i++){
-
-  const t =
-  Math.PI*2*i/total;
-
-  const x =
-  16*Math.pow(Math.sin(t),3);
-
-  const y =
-  13*Math.cos(t)
-  -5*Math.cos(2*t)
-  -2*Math.cos(3*t)
-  -Math.cos(4*t);
-
-  const word =
-  document.createElement("span");
-
-  word.className="word";
-
-  word.innerText="I LOVE YOU";
-
-  word.style.left =
-  (180+x*9)+"px";
-
-  word.style.top =
-  (155-y*9)+"px";
-
-  heart.appendChild(word);
-
-  setTimeout(()=>{
-
-    word.classList.add("show");
-
-  },i*38);
-}
+window.addEventListener(
+    "resize",
+    resize
+);
 
 
-/* الرسائل */
+for(let i=0;i<130;i++){
 
-const messages=[
+    stars.push({
 
-"عائشة، يمكن الكلام مش قادر يوصف كل اللي جوايا، لكن حبيت أعمل حاجة مختلفة عشان أقولك إنك شخص مميز جدًا بالنسبة لي. ❤️",
+        x:Math.random()*innerWidth,
 
-"في ناس بنقابلهم في حياتنا بالصدفة، وبعدها نكتشف إن وجودهم بقى له معنى كبير... وإنتِ واحدة من الناس دي. ✨",
+        y:Math.random()*innerHeight,
 
-"أتمنى دايمًا تكوني مبسوطة، وتفضلي شايفة قد إيه وجودك ممكن يكون سبب في لحظة حلوة لشخص تاني. 🌹",
+        r:Math.random()*1.7+.3,
 
-"لو سألتيني إيه أجمل حاجة في الصفحة دي؟ هقولك إن كل الكلام اللي فيها في الآخر بيوصل لشخص واحد... عائشة. ❤️"
+        speed:Math.random()*.4+.1,
 
-];
+        alpha:Math.random()
 
-let current=0;
-
-
-function changeMessage(){
-
-  const box =
-  document.getElementById("messageText");
-
-  box.style.opacity=0;
-
-  setTimeout(()=>{
-
-    current++;
-
-    if(current>=messages.length)
-      current=0;
-
-    box.innerText=messages[current];
-
-    box.style.opacity=1;
-
-  },500);
-}
-
-
-/* زر الرسالة */
-
-function scrollToMessage(){
-
-  document
-  .getElementById("message")
-  .scrollIntoView({
-    behavior:"smooth"
-  });
+    });
 
 }
 
 
-/* المفاجأة */
+function drawStars(){
 
-function surprise(){
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
 
-  const secret =
-  document.getElementById("secret");
 
-  secret.innerHTML=
-  "❤️ عائشة... إنتِ أجمل سبب خلّى الصفحة دي تتعمل ❤️";
+    stars.forEach(star=>{
+
+        star.y -= star.speed;
+
+        if(star.y < 0){
+            star.y = innerHeight;
+            star.x = Math.random()*innerWidth;
+        }
+
+        star.alpha +=
+            (Math.random()-.5)*.03;
+
+        star.alpha =
+            Math.max(
+                .15,
+                Math.min(1,star.alpha)
+            );
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.r,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle =
+            `rgba(255,255,255,${star.alpha})`;
+
+        ctx.fill();
+
+    });
+
+
+    requestAnimationFrame(
+        drawStars
+    );
+
+}
+
+drawStars();
+
+
+/* =========================
+   الرسائل
+========================= */
+
+const secret =
+document.getElementById("secret");
+
+const title =
+document.getElementById("secretTitle");
+
+const message =
+document.getElementById("secretText");
+
+const secretIcon =
+document.getElementById("secretIcon");
+
+
+function openSecret(number){
+
+    if(number===1){
+
+        secretIcon.className =
+            "fa-solid fa-gift";
+
+        title.textContent =
+            "هدية Saeed 🎁";
+
+        message.textContent =
+            "أحلى هدية ممكن تتقدم هي إنك تفضل دايمًا بخير وفرحان، وربنا يحققلك كل اللي نفسك فيه.";
+
+    }
+
+
+    if(number===2){
+
+        secretIcon.className =
+            "fa-solid fa-heart";
+
+        title.textContent =
+            "من القلب ❤️";
+
+        message.textContent =
+            "يمكن مش بقول الكلام ده كتير، بس أنت شخص غالي عندي، ومكانتك كبيرة.";
+
+    }
+
+
+    if(number===3){
+
+        secretIcon.className =
+            "fa-solid fa-star";
+
+        title.textContent =
+            "آخر مفاجأة ✨";
+
+        message.textContent =
+            "Saeed، ربنا يحفظك ويديم بينا المحبة والضحكة والذكريات الجميلة.";
+
+    }
+
+
+    secret.classList.add("active");
+
+}
+
+
+function closeSecret(){
+
+    secret.classList.remove("active");
 
 }
 
